@@ -166,3 +166,76 @@ UPDATE VENTAS SET id_funcion=4, id_cliente=4, nroFactura=1004, numBoleVend=26 WH
 -- ELIMINAR VENTAS
 DELETE FROM VENTAS WHERE VENTAS.id_ventas=1;
 -- ... (resto de las eliminaciones)
+
+
+
+
+/*iNSTANCIAS*/
+
+public class Ciudad {
+    private int idCiudad;
+    private String nomCiud;
+
+    // Constructor, getters y setters
+}
+
+public class Teatro {
+    private int idTeatro;
+    private String nomTeatro;
+    private Ciudad ciudad; // Relación con la tabla CIUDAD
+
+    // Constructor, getters y setters
+}
+
+public class Sala {
+    private int idSala;
+    private int capaSala;
+    private int sillaVIP;
+    private int sillaGen;
+    private int numBoletas;
+    private int sillasDispo;
+    private Teatro teatro; // Relación con la tabla TEATRO
+
+    // Constructor, getters y setters
+}
+
+public class Pelicula {
+    private int idPelicula;
+    private String nomPeli;
+    private Time duracion;
+    private String categoriaPeli;
+
+    // Constructor, getters y setters
+}
+
+import java.util.Date;
+
+public class Funcion {
+    private int idFuncion;
+    private Date fecha;
+    private Sala sala; // Relación con la tabla SALAS
+    private Pelicula pelicula; // Relación con la tabla PELICULA
+
+    // Constructor, getters y setters
+}
+
+public class Cliente {
+    private int idCliente;
+    private String nombre;
+    private String apellido;
+    private String celular;
+
+    // Constructor, getters y setters
+}
+
+public class Venta {
+    private int idVenta;
+    private Funcion funcion; // Relación con la tabla FUNCIONES
+    private Cliente cliente; // Relación con la tabla CLIENTE
+    private int nroFactura;
+    private int numBoleVend;
+
+    // Constructor, getters y setters
+}
+
+
