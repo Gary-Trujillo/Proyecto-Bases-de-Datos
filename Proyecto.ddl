@@ -239,3 +239,81 @@ public class Venta {
 }
 
 
+
+
+/* CONECCION BASE DE DATOS */
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+
+public class ConexionBD {
+    public static Connection obtenerConexion() throws SQLException {
+        String url = "jdbc:mysql://localhost:3306/tu_basededatos";
+        String usuario = "tu_usuario";
+        String contraseña = "tu_contraseña";
+
+        Connection conexion = DriverManager.getConnection(url, usuario, contraseña);
+        return conexion;
+    }}
+
+    try{
+
+    Connection conexion = ConexionBD.obtenerConexion();
+
+    // Realizar operaciones en la base de datos
+
+    // Cerrar la conexión cuando hayas terminado
+    if(conexion!=null)
+    {
+        conexion.close();
+    }}catch(
+    SQLException e)
+    {
+        e.printStackTrace();
+        // Manejar errores
+}
+
+/* CIERRE DE CONECCION */
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+public class EjemploBaseDeDatos {
+
+    private static final String URL = "jdbc:tu_base_de_datos_aqui";
+    private static final String USUARIO = "tu_usuario";
+    private static final String CONTRASENA = "tu_contrasena";
+
+    public static void main(String[] args) {
+        // Ejemplo de consulta a la base de datos
+        try (Connection conexion = DriverManager.getConnection(URL, USUARIO, CONTRASENA);
+                PreparedStatement consulta = conexion.prepareStatement("SELECT * FROM pelicula");
+                ResultSet resultado = consulta.executeQuery()) {
+
+            // Trabajar con los resultados aquí
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        // La conexión se cerrará automáticamente al salir del bloque try-with-resources
+    }
+}
+
+
+
+
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+#
+# On branch main
+# Your branch is ahead of 'origin/main' by 1 commit.
+#   (use "git push" to publish your local commits)
+#
+
+
+
+
